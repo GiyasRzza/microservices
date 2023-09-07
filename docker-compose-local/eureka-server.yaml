@@ -1,0 +1,33 @@
+version: '3'
+services:
+  eureka-server:
+    image: eureka-server:0.0.1
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - my-network
+
+  # my-service1:
+  #   image: product-service:0.0.1
+  #   container_name: product-service
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - eureka-server
+  #   networks:
+  #     - my-network
+
+  my-service2:
+    image: zuul-server:0.0.1
+    container_name:  zuul-server
+    ports:
+      - "8762:8762"
+    depends_on:
+      - eureka-server
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

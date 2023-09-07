@@ -1,0 +1,13 @@
+version: '3'
+services:
+  spring-app:
+    image: zuul-server:0.0.1
+    container_name: zuul-server
+    ports:
+      - "8762:8762"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
