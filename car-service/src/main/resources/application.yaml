@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: car-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/Matrix
+    username: root
+    password: searcher
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#eureka:
+#  instance:
+#    instance-id: ${spring.application.name}:${random.uuid}
+#  client:
+#    service-url:
+#      default-zone: http://localhost:8761/eureka
+server:
+  port: 8081
